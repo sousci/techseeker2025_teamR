@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>AR Marker Sample</title>
-    <!-- A-Frame & AR.js (CDN利用) -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
-    <style>
-      body { margin: 0; overflow: hidden; }
-    </style>
-  </head>
-  <body>
-    <!-- A-Frame Scene -->
-    <a-scene embedded arjs="sourceType: webcam;">
-      <!-- 任意マーカーを利用 -->
-      <a-marker type="pattern" url="./pattern-marker.patt">
-        <!-- ここに表示する3Dオブジェクトを追加 -->
-        <a-box position="0 0.5 0" material="color: red;"></a-box>
-        <a-text value="Hello AR!" position="-0.5 1 0" scale="2 2 2"></a-text>
-      </a-marker>
-
-      <!-- カメラ -->
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>sample</title>
+    <body style="margin: 0px 0px 0px 126.5px; overflow: hidden;">
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
+    <a-scene embedded="" arjs="trackingMethod:best; debugUIEnabled:false;" class="" canvas="" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
+		<a-marker type="pattern" url="pattern-marker.patt">
+        <a-box position="0 0.8 0" wireframe="false" color="#843233" rotation="" scale="" visible="" material="" geometry="" src="" width="0.7" height="0.7" depth="0.7" >
+          <a-animation attribute="rotation" from="20 0 0" to="20 360 0" direction="alternate" dur="4000" repeat="indefinite" easing="ease"></a-animation>
+        </a-box>
+    </a-marker>
+    <a-entity camera="" position="" rotation="" scale="" visible=""></a-entity>
+    <canvas class="a-canvas" data-aframe-canvas="true"></canvas>
+    <a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible=""></a-entity>
+    <a-entity light="" position="" data-aframe-default-light="" aframe-injected="" rotation="" scale="" visible=""></a-entity>
+  </a-scene>
+</body>
 </html>
