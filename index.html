@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>sample</title>
+    <body style="margin: 0px 0px 0px 126.5px; overflow: hidden;">
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
+    <a-scene embedded="" arjs="trackingMethod:best; debugUIEnabled:false;" class="" canvas="" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
+		<a-marker id="m" type="pattern" url="./pattern-tora.patt" emitevents="true">
+        <a-box position="0 0.8 0" wireframe="false" color="#843233" rotation="" scale="" visible="" material="" geometry="" src="" width="0.7" height="0.7" depth="0.7" >
+          <a-animation attribute="rotation" from="20 0 0" to="20 360 0" direction="alternate" dur="4000" repeat="indefinite" easing="ease"></a-animation>
+        </a-box>
+    </a-marker>
+	<script>
+		const m = document.querySelector('#m');
+		m.addEventListener('markerFound', () => console.log('marker FOUND'));
+		m.addEventListener('markerLost',  () => console.log('marker LOST'));
+	  </script>
+    <a-entity camera="" position="" rotation="" scale="" visible=""></a-entity>
+    <canvas class="a-canvas" data-aframe-canvas="true"></canvas>
+    <a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible=""></a-entity>
+    <a-entity light="" position="" data-aframe-default-light="" aframe-injected="" rotation="" scale="" visible=""></a-entity>
+  </a-scene>
+</body>
+</html>
