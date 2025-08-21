@@ -1,25 +1,39 @@
-<!DOCTYPE html>
-<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>sample</title>
-    <body style="margin: 0px 0px 0px 126.5px; overflow: hidden;">
-        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
-    <a-scene embedded="" arjs="trackingMethod:best; debugUIEnabled:false;" class="" canvas="" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
-		<a-marker id="m" type="pattern" url="./pattern-tora.patt" emitevents="true">
-        <a-box position="0 0.8 0" wireframe="false" color="#843233" rotation="" scale="" visible="" material="" geometry="" src="" width="0.7" height="0.7" depth="0.7" >
-          <a-animation attribute="rotation" from="20 0 0" to="20 360 0" direction="alternate" dur="4000" repeat="indefinite" easing="ease"></a-animation>
-        </a-box>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>Byobu Tiger AR</title>
+  <!-- A-Frame & AR.js (CDN) -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+  <style>body{margin:0;overflow:hidden}</style>
+</head>
+<body>
+  <a-scene
+    embedded
+    vr-mode-ui="enabled:false"
+    renderer="alpha:true; antialias:true; precision:mediump"
+    arjs="sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; debugUIEnabled: false;
+          sourceWidth:640; sourceHeight:480; displayWidth:640; displayHeight:480">
+
+    <!-- GLB読み込み -->
+    <a-assets>
+      <a-asset-item id="tigerModel" src="./assets/tiger.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- マーカー -->
+    <a-marker type="pattern" url="./assets/pattern-tora.patt">
+      <!-- トラのモデル配置 -->
+      <a-entity
+        gltf-model="#tigerModel"
+        scale="0.004 0.004 0.004"
+        rotation="0 90 0"
+        position="0 0 0"
+        animation-mixer>
+      </a-entity>
     </a-marker>
-	<script>
-		const m = document.querySelector('#m');
-		m.addEventListener('markerFound', () => console.log('marker FOUND'));
-		m.addEventListener('markerLost',  () => console.log('marker LOST'));
-	  </script>
-    <a-entity camera="" position="" rotation="" scale="" visible=""></a-entity>
-    <canvas class="a-canvas" data-aframe-canvas="true"></canvas>
-    <a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible=""></a-entity>
-    <a-entity light="" position="" data-aframe-default-light="" aframe-injected="" rotation="" scale="" visible=""></a-entity>
+
+    <a-entity camera></a-entity>
   </a-scene>
 </body>
 </html>
